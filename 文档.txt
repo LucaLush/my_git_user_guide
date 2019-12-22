@@ -1,0 +1,41 @@
+﻿使用四个工具去使用git
+网站：github;   
+软件：github for desktop 、git、 tortoise git
+
+使用流程：
+tortoisegit使用教程:
+https://www.cnblogs.com/anayigeren/p/10177027.html   
+
+1、安装github for desktop 、git、 tortoisegit 、tortoisegit chinese language package四个包
+
+2、登录github账号
+
+3、参考https://www.cnblogs.com/yuanchaoyong/p/9976895.html  配置本机SSH key地址，并将生成的地址放进
+	github 我的头像 setting里面的ssh key里完成密钥匹配，以后就可以通过仓库的ssh密钥通过tortoisegit克隆仓库
+
+4、参考https://blog.csdn.net/Maxiao1204/article/details/81476618  配置tortoisegit 的ssh.exe的本机地址
+
+
+解决方法：
+1、旧版本文件回退问题，建议使用分支的方式，用命令行针对某个commit或commit id创建新的分支、然后用checkout命令切换到新分支上面。以后就可以随时切换分支来恢复就版本！
+
+参考资料:
+
+本地仓库的操作流程：
+git log 			 #获取当前所有commit
+git branch [Branch Name] [Branch commit sha] 	#通过github for desktop获取特定commit的sha然后创建分支
+git checkout [Branch Name] 		#切换到新分支上
+ 
+
+2、 当前分支某个commit后有好几个commit不想要了，通过git指令切换head指针地址然后强制push到远端解决
+操作流程：
+git reset --hard  [最后一个有效的commit sha值]
+git push --force #强制同步到远端
+
+3、通过git checkout [commit id] 可以将当前文件暂时切换到指定版本，建议切换完之后复制文件，然后切换回去，用了checkout命令后当前分支变成de head模式不会同步
+
+4、tortoise分支创建与合并
+https://www.cnblogs.com/caicaizi/p/9809774.html
+
+5、tortoisegit同步远端报错The authenticity of host 'github.com (13.229.188.59)' can't be established.的解决方案
+https://blog.csdn.net/jinying_51eqhappy/article/details/80802448
